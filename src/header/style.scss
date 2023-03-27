@@ -1,0 +1,20 @@
+.header {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  height: 72px;
+  background-color: #2d3142;
+  color: #fff;
+  margin-bottom: 30px;
+  width: 100%;
+
+  &__content {
+    display: flex;
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+}
