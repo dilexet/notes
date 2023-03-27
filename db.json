@@ -1,0 +1,65 @@
+{
+  "notes": [
+    {
+      "id": "note-1",
+      "title": "My first note",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "tags": [
+        {
+          "id": "tag-1",
+          "content": "Lorem"
+        },
+        {
+          "id": "9ea3e0a9-6100-4b78-a525-a7be114982c7",
+          "content": "consectetur"
+        },
+        {
+          "id": "99886bcf-5bc1-40bf-99e3-d46c2363d3f0",
+          "content": "adipiscing"
+        }
+      ]
+    },
+    {
+      "id": "note-2",
+      "title": "My second note updated",
+      "content": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "tags": [
+        {
+          "id": "tag-3",
+          "content": "Ipsum"
+        },
+        {
+          "id": "tag-4",
+          "content": "Dolor"
+        },
+        {
+          "id": "26f4cc23-2de7-4330-8baa-d10c7276650a",
+          "content": "labore"
+        }
+      ]
+    },
+    {
+      "id": "note-3",
+      "title": "My third note",
+      "content": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "tags": [
+        {
+          "id": "tag-5",
+          "content": "Lorem"
+        },
+        {
+          "id": "tag-6",
+          "content": "Dolor"
+        },
+        {
+          "id": "e8c89d7f-e677-4c47-99d1-22e612930d2c",
+          "content": "exercitation"
+        },
+        {
+          "id": "19871fc4-9f6c-49c6-981a-2430db42d187",
+          "content": "laboris"
+        }
+      ]
+    }
+  ]
+}

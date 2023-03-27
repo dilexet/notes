@@ -1,38 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { NoteComponentProps } from './props';
 import './style.scss';
-import { NoteType } from '../shared/types/note';
+import { Link } from 'react-router-dom';
 
-interface NoteProps {
-  note: NoteType;
-  onEditNote: (id: string) => void;
-  onDeleteNote: (id: string) => void;
-  onTagRemove: (noteId: string, tagId: string) => void;
-  onTagAdd: (noteId: string, newTag: string) => void;
-}
-
-const Note: React.FC<NoteProps> = ({
+const Note: React.FC<NoteComponentProps> = ({
   note,
-  onEditNote,
+  parts,
+  newTag,
   onDeleteNote,
   onTagRemove,
-  onTagAdd,
+  handleTagAdd,
+  handleTagInputChange,
 }) => {
-  const regex = new RegExp(
-    `\\b(${note.tags.map((tag) => tag.content).join('|')})\\b`,
-    'gi'
-  );
-  const parts = note.content.split(regex);
-
-  const [newTag, setNewTag] = useState('');
-
-  function handleTagAdd() {
-    if (newTag.trim() === '') {
-      return;
-    }
-    onTagAdd(note.id, newTag.trim());
-    setNewTag('');
-  }
-
   return (
     <li className="note">
       <h3 className="note__title">{note.title}</h3>
@@ -52,10 +31,10 @@ const Note: React.FC<NoteProps> = ({
       <div className="note__tags">
         {note.tags.map((tag) => (
           <div key={tag.id} className="note__tag">
-            <span className="note__tag__content">#{tag.content}</span>
+            <span className="note__tag__content">{tag.content}</span>
             <button
               className="note__tag__button"
-              onClick={() => onTagRemove(note.id, tag.id)}
+              onClick={() => onTagRemove(note, tag.id)}
             >
               &#10005;
             </button>
@@ -66,7 +45,7 @@ const Note: React.FC<NoteProps> = ({
             type="text"
             className="note__tag__new__input"
             value={newTag}
-            onChange={(e) => setNewTag(e.target.value)}
+            onChange={handleTagInputChange}
             placeholder="Add tag"
           />
           <button className="note__tag__new__button" onClick={handleTagAdd}>
@@ -75,12 +54,9 @@ const Note: React.FC<NoteProps> = ({
         </div>
       </div>
       <div className="note__actions">
-        <button
-          className="note__edit-button"
-          onClick={() => onEditNote(note.id)}
-        >
+        <Link to={`/new/${note.id}`} className="note__edit-button">
           Edit
-        </button>
+        </Link>
         <button
           className="note__delete-button"
           onClick={() => onDeleteNote(note.id)}
