@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss';
-import { APP_NAME } from '../footer';
+import { APP_NAME } from '../../features/constants/app';
 
 const Header: React.FC = () => {
   return (

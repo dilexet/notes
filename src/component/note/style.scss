@@ -112,7 +112,7 @@ $note-border-color: #e2e2e2;
     gap: 10px;
     margin-top: 1rem;
 
-    button {
+    a, button {
       border: none;
       border-radius: 0.25rem;
       color: #fff;
@@ -121,6 +121,7 @@ $note-border-color: #e2e2e2;
       padding: 0.5rem 1rem;
 
       &.note__edit-button {
+        text-decoration: none;
         background-color: #4CAF50;
 
         &:active {

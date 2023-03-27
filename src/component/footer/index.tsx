@@ -1,13 +1,6 @@
 import React from 'react';
 import './style.scss';
-
-export const APP_NAME = 'NoteHub';
-
-export const APP_MAIL = 'pavarha.maksim@gmail.com';
-
-export const APP_DESCRIPTION =
-  '"NoteHub" is a simple application for taking and managing notes. Users can create, edit and delete notes with a title, content and tags. The app allows users to search notes by tags. It provides a user-friendly interface and supports responsive design, allowing users to use the app on different devices. With its simple and intuitive design, "NoteHub" is a great tool for personal or professional use.' +
-  'If you have any questions write to: ';
+import { APP_NAME, APP_MAIL, APP_DESCRIPTION } from '../../features/constants/app';
 
 const Footer: React.FC = () => {
   return (
