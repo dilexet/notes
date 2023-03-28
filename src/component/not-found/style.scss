@@ -1,0 +1,63 @@
+.not-found-container {
+  position: relative;
+  height: 100vh;
+
+  .not-found-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-width: 520px;
+    width: 100%;
+    line-height: 1.4;
+    text-align: center;
+
+    .not-found-header {
+      position: relative;
+      height: 240px;
+
+      h3 {
+        font-family: "Cabin", sans-serif;
+        position: relative;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+        letter-spacing: 3px;
+        padding-left: 6px;
+        color: rgb(38, 38, 38);
+      }
+
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-size: 252px;
+        font-weight: 900;
+        margin: 0 0 0 -20px;
+        text-transform: uppercase;
+        letter-spacing: -40px;
+        color: rgb(38, 38, 38);
+      }
+
+      .not-found-number {
+        text-shadow: -8px 0 0 #d8d8d5;
+      }
+    }
+
+    .not-found-message {
+      font-family: "Cabin", sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 25px;
+      color: rgb(0, 0, 0);
+    }
+  }
+}

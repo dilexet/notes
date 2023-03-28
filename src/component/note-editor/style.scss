@@ -1,0 +1,130 @@
+.note-form {
+  max-width: 90%;
+  width: 100%;
+
+  & .notes-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__content {
+      display: inline-block;
+      width: 100%;
+      max-width: 600px;
+      max-height: 250px;
+      word-wrap: break-word;
+      overflow: auto;
+      padding: 0.5rem;
+      margin: 20px 0 10px;
+      background-color: #f7f7f7;
+      border: 1px solid #ccc;
+
+      mark.highlight {
+        background-color: #ffe0b2;
+        color: inherit;
+        padding: 0 4px;
+      }
+    }
+
+    &__label {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    &__input {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      border: none;
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      margin-top: 10px;
+
+      &.content {
+        resize: none;
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+
+      &:focus {
+        outline: none;
+        border: 1px solid #0077ff;
+      }
+
+      &:hover {
+        border-color: #6c63ff;
+      }
+    }
+
+    &__button {
+      background-color: #0077ff;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #005cff;
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+
+  &__tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+
+    .note-form__tag {
+      display: flex;
+      align-items: center;
+      background-color: #f2f2f2;
+      border-radius: 20px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+
+      span {
+        margin-right: 5px;
+      }
+
+      .note-form__tag-delete {
+        background-color: transparent;
+        border: none;
+        color: #a6a6a6;
+        cursor: pointer;
+        font-size: 14px;
+        margin-left: 5px;
+
+        &:hover {
+          color: #666;
+        }
+      }
+    }
+  }
+
+  &__submit {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #0069d9;
+    }
+  }
+}
