@@ -14,4 +14,5 @@ export interface NoteEditorComponentProps {
   handleTagDelete: (tagId: string) => void;
   handleSubmit: () => void;
   isCreationMode: boolean;
+  isEdit: boolean;
 }

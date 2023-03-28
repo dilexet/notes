@@ -15,6 +15,7 @@ const NoteEditor: React.FC<NoteEditorComponentProps> = ({
   handleTitleInputChange,
   handleSubmit,
   isCreationMode,
+  isEdit,
 }) => {
   return (
     <div className="note-form">
@@ -67,7 +68,11 @@ const NoteEditor: React.FC<NoteEditorComponentProps> = ({
           </div>
         ))}
       </div>
-      <button className="note-form__submit" onClick={handleSubmit}>
+      <button
+        className="note-form__submit"
+        disabled={isEdit}
+        onClick={handleSubmit}
+      >
         {isCreationMode ? 'Create' : 'Save'}
       </button>
     </div>

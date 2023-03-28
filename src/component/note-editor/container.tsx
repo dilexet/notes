@@ -156,6 +156,7 @@ const NoteEditorContainer: React.FC = () => {
       handleTitleInputChange={handleTitleInputChange}
       handleSubmit={handleSubmit}
       isCreationMode={!!id}
+      isEdit={isEdit}
     />
   );
 };
