@@ -6,9 +6,12 @@ import { NoteType, TagType } from '../shared/types/note';
 import { noteUpdate } from '../note-editor/actions';
 import { noteRemove, notesGetAll } from './actions';
 import NoteList from './component';
+import Loading from '../loading/component';
+import { LOADING_STATUSES } from '../../features/constants/redux-state';
 
 const NoteListContainer: React.FC = () => {
   const dispatch = useAppDispatch();
+  const notesReducer = useAppSelector((x) => x.notesReducer);
   const notes = useAppSelector(selectAll);
 
   const [activeTags, setActiveTags] = useState<string[]>([]);
@@ -64,20 +67,33 @@ const NoteListContainer: React.FC = () => {
   useEffect(() => {
     if (isLoading) {
       fetchNotes(null).catch();
-      setIsLoading(false);
     }
   }, [fetchNotes, isLoading]);
 
-  return (
-    <NoteList
-      notes={notes}
-      activeTags={activeTags}
-      handleTagClick={handleTagClick}
-      onDeleteNote={onDeleteNote}
-      onTagRemove={onTagRemove}
-      onTagAdd={onTagAdd}
-    />
-  );
+  useEffect(() => {
+    if (
+      isLoading &&
+      (notesReducer?.loadingStatusGetAll === LOADING_STATUSES.IDLE ||
+        notesReducer?.loadingStatusGetAll === LOADING_STATUSES.FAILED)
+    ) {
+      setIsLoading(false);
+    }
+  }, [fetchNotes, isLoading, notesReducer?.loadingStatusGetAll]);
+
+  if (isLoading) {
+    return <Loading />;
+  } else {
+    return (
+      <NoteList
+        notes={notes}
+        activeTags={activeTags}
+        handleTagClick={handleTagClick}
+        onDeleteNote={onDeleteNote}
+        onTagRemove={onTagRemove}
+        onTagAdd={onTagAdd}
+      />
+    );
+  }
 };
 
 export default NoteListContainer;

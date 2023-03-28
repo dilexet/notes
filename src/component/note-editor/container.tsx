@@ -20,6 +20,7 @@ const NoteEditorContainer: React.FC = () => {
   const [tagInput, setTagInput] = useState<string>('');
   const [contentTagInput, setContentTagInput] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isEdit, setIsEdit] = useState<boolean>(false);
 
   const tagsRegExp = new RegExp(
     `\\b(${tags.map((tag) => tag?.content).join('|')})\\b`,
@@ -44,6 +45,8 @@ const NoteEditorContainer: React.FC = () => {
       return;
     }
     await dispatch(noteCreate(newNote));
+
+    setIsEdit(true);
   };
 
   const handleTagInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -130,10 +133,14 @@ const NoteEditorContainer: React.FC = () => {
   ]);
 
   useEffect(() => {
-    if (!isLoading && notes.loadingStatusEdit === LOADING_STATUSES.IDLE) {
+    if (isEdit && notes.loadingStatusEdit === LOADING_STATUSES.IDLE) {
+      setIsEdit(false);
       navigate('/');
     }
-  }, [isLoading, navigate, notes.loadingStatusEdit]);
+    if (!isEdit && notes.loadingStatusEdit === LOADING_STATUSES.FAILED) {
+      setIsEdit(false);
+    }
+  }, [isEdit, navigate, notes.loadingStatusEdit]);
 
   return (
     <NoteEditor
