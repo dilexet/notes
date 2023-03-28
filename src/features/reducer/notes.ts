@@ -6,11 +6,7 @@ import {
 import { NoteType } from '../../component/shared/types/note';
 import { LOADING_STATUSES } from '../constants/redux-state';
 import { NotesState } from '../../component/shared/types/notes-state';
-import {
-  notesGetAll,
-  noteRemove,
-  tagGetAll,
-} from '../../component/note-list/actions';
+import { notesGetAll, noteRemove } from '../../component/note-list/actions';
 import {
   noteCreate,
   noteGetOne,

@@ -1,6 +1,10 @@
 import React from 'react';
 import './style.scss';
-import { APP_NAME, APP_MAIL, APP_DESCRIPTION } from '../../features/constants/app';
+import {
+  APP_NAME,
+  APP_MAIL,
+  APP_DESCRIPTION,
+} from '../../features/constants/app';
 
 const Footer: React.FC = () => {
   return (
